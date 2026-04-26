@@ -333,15 +333,15 @@
 
     <div id="errorMsg" class="error-msg"></div>
 
-    <form id="form" onsubmit="confirmar(event)">
+    <div id="form">
       <div class="form-group">
         <label for="nome">Seu nome completo</label>
-        <input type="text" id="nome" name="nome" required placeholder="Ex: Maria Silva" autofocus>
+        <input type="text" id="nome" placeholder="Ex: Maria Silva" autofocus>
       </div>
-      <button type="submit" class="btn" id="btn">
+      <button type="button" class="btn" id="btn" onclick="confirmar()">
         Confirmar Presença ✨
       </button>
-    </form>
+    </div>
 
     <p class="footer">Sua presença é o melhor presente! 💝</p>
   </div>
@@ -375,9 +375,7 @@
 
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  async function confirmar(e) {
-    e.preventDefault();
-
+  async function confirmar() {
     const nome = document.getElementById('nome').value.trim();
     const btn = document.getElementById('btn');
     const errorMsg = document.getElementById('errorMsg');
